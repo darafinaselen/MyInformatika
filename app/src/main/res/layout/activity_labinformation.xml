@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECECEC"
+    tools:context=".LabInfoActivity">
+
+    <!-- Background Image -->
+
+    <!-- Back Button -->
+    <ImageView
+        android:id="@+id/backgroundImageLabinfor"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/lab1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- Dropdown Button -->
+
+    <!-- CardView Section -->
+
+    <ImageButton
+        android:id="@+id/backButtonLabinfor"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/round_button_background"
+        android:contentDescription="Back"
+        android:elevation="4dp"
+        android:padding="8dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_back"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <TextView
+        android:id="@+id/dropdownButtonLabinfor"
+        android:layout_width="189dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/dropdown_background"
+        android:gravity="center"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="Laboratorium 1"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_arrow_down"
+        app:layout_constraintStart_toEndOf="@id/backButtonLabinfor"
+        app:layout_constraintTop_toTopOf="@id/backButtonLabinfor" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/infoCardLabinfor"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        android:backgroundTint="#ECECEC"
+        app:layout_constraintTop_toBottomOf="@id/backgroundImageLabinfor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="405dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_top_rounded"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/titleTextLabinfor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="6dp"
+                android:text="Laboratorium Sistem Cerdas"
+                android:textColor="#111111"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descriptionTextLabinfor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:justificationMode="inter_word"
+                android:lineSpacingExtra="6dp"
+                android:text="Laboratorium Sistem Cerdas dan Aplikasinya berorientasi pada pengembangan metodologi penalaran komputer, khususnya pengembangan aspek kecerdasan buatan. Laboratorium ini juga mengembangkan metode-metode untuk menghasilkan perangkat lunak yang berkualitas."
+                android:textAlignment="viewStart"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/descriptionTextSecondLabinfor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:justificationMode="inter_word"
+                android:lineSpacingExtra="6dp"
+                android:text="Bidang penelitian laboratorium ini meliputi semua tahapan pengembangan perangkat lunak, mulai dari user requirement, desain, implementasi dan pemeliharaan. Bidang lain yang menjadi fokus laboratorium ini adalah pengembangan infrastruktur informasi dan sistem manajemen data."
+                android:textAlignment="viewStart"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

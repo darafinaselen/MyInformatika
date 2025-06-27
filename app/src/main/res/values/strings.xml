@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Informatika</string>
+
+    <string name="welcome_title">Welcome to</string>
+    <string name="welcome_title2">My Informatika</string>
+    <string name="welcome_subtitle">The most reliable app for Unram informatics engineering student</string>
+    <string name="get_started">Get Started</string>
 </resources>

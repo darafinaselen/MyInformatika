@@ -54,6 +54,9 @@ class AcademicInfoActivity : AppCompatActivity() {
                 views = "0"
             )
         )
-        recyclerView.adapter = InfoAdapter(dataList)
+        recyclerView.adapter = InfoAdapter(
+            dataList,
+            onDeleteClick = TODO()
+        )
     }
 }

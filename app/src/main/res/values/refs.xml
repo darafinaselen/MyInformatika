@@ -3,4 +3,5 @@
     <drawable name="ic_scan" />
     <drawable name="ic_profile" />
     <drawable name="ic_article" />
+    <drawable name="ic_visibility" />
 </resources>

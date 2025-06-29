@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/secondarycolor300"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormInfoAdminActivity">
+
+    <!-- Judul -->
+    <ImageView
+        android:id="@+id/logo_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_arrow_back"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/title1"
+        android:layout_below="@id/logo_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tambahkan"
+        android:textSize="32sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppinssemibold"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_below="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Academic Information"
+        android:fontFamily="@font/poppinssemibold"
+        android:textSize="32sp"
+        android:textColor="#1976D2"
+        android:paddingLeft="30dp"
+        android:layout_marginTop="-15dp" />
+
+    <!-- Form -->
+    <EditText
+        android:id="@+id/inputCategory"
+        android:layout_below="@id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="30dp"
+        android:hint="Kategori"
+        android:padding="10dp"
+        android:background="@drawable/background_edit"/>
+
+    <EditText
+        android:id="@+id/inputTitle"
+        android:layout_below="@id/inputCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="30dp"
+        android:hint="Judul"
+        android:padding="10dp"
+        android:background="@drawable/background_edit"/>
+
+    <EditText
+        android:id="@+id/inputDescription"
+        android:layout_below="@id/inputTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="30dp"
+        android:hint="Deskripsi"
+        android:minLines="3"
+        android:gravity="top"
+        android:padding="10dp"
+        android:background="@drawable/background_edit"/>
+
+    <EditText
+        android:id="@+id/inputDate"
+        android:layout_below="@id/inputDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="30dp"
+        android:hint="Tanggal (YYYY-MM-DD)"
+        android:padding="10dp"
+        android:background="@drawable/background_edit"/>
+
+    <!-- Tombol Submit -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_below="@id/inputDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#1976D2"
+        android:textColor="@android:color/white"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="10dp" />
+
+</RelativeLayout>

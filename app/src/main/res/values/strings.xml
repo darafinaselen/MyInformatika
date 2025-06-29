@@ -5,4 +5,40 @@
     <string name="welcome_title2">My Informatika</string>
     <string name="welcome_subtitle">The most reliable app for Unram informatics engineering student</string>
     <string name="get_started">Get Started</string>
+    <string name="login">Login</string>
+    <string name="name">Email / ID Number</string>
+    <string name="pass">Password</string>
+    <string name="remember">Remember me</string>
+    <string name="desc_biometric_button">Tombol untuk login dengan sidik jari</string>
+    <string name="create_account">Create Account</string>
+    <string name="label_fullname">Fullname</string>
+    <string name="enter_full_name">enter full name</string>
+    <string name="id_number">ID Number</string>
+    <string name="hint_id_number">F1D0XXXX or 910XXX</string>
+    <string name="register">Register</string>
+    <string name="entry_date">Entry Date</string>
+    <string name="select_date">Select date</string>
+    <string name="user_type">User Type</string>
+    <string name="select_user_type">Select user type</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="no_hp">08xxxxxxxxxx</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="create_a_password">Create a password</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="action_detail">Detail</string>
+    <string name="action_delete">Hapus</string>
+    <string name="cd_back_button">Icon Back</string>
+    <string name="feedback_list_title">Daftar Feedback</string>
+    <string name="search_hint">Search</string>
+    <string name="category">Kategori</string>
+    <string name="date">Tanggal</string>
+    <string name="header_action">Aksi</string>
+    <string-array name="user_types">
+        <item>Student</item>
+        <item>Admin</item>
+    </string-array>
 </resources>

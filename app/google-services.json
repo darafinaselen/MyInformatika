@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "29392660000",
+    "project_id": "my-informatika",
+    "storage_bucket": "my-informatika.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29392660000:android:9d0e9a5d52befcc09cfe45",
+        "android_client_info": {
+          "package_name": "com.example.myinformatika"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtSPi61lqN68Jlcx4YkiazPk7wgK_nx6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

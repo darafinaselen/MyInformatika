@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FillArticle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EAF3FA"
+    tools:context=".ArticleActivity">
+
+    <!-- Tombol Kembali -->
+    <ImageButton
+        android:id="@+id/backButtonArticleActivity"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/round_button_background"
+        android:src="@drawable/ic_back"
+        android:contentDescription="Kembali"
+        android:padding="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Header Text -->
+    <TextView
+        android:id="@+id/headerTextArticleActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:fontFamily="sans-serif"
+        android:shadowColor="#888888"
+        android:shadowDx="0"
+        android:shadowDy="2"
+        android:shadowRadius="3"
+        android:text="Article"
+        android:textColor="#29486A"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/backButtonArticleActivity"
+        app:layout_constraintTop_toTopOf="@id/backButtonArticleActivity"
+        app:layout_constraintBottom_toBottomOf="@id/backButtonArticleActivity"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <!-- Judul Artikel -->
+    <TextView
+        android:id="@+id/articleactivityTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:lineSpacingExtra="4dp"
+        android:text="Prospek Kerja Lulusan Teknik Informatika dan Kisaran Gajinya"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/backButtonArticleActivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Gambar Artikel -->
+    <ImageView
+        android:id="@+id/articleactivityImage"
+        android:layout_width="0dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/article_image"
+        app:layout_constraintTop_toBottomOf="@id/articleactivityTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Tanggal -->
+
+    <!-- CardView berisi ScrollView -->
+
+    <TextView
+        android:id="@+id/articleactivityDate"
+        android:layout_width="166dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="4dp"
+        android:text="Sunday, 10 September 2023"
+        android:textColor="#418DFF"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/articleactivityImage" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/articleactivityCard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:backgroundTint="#EAF3FA"
+        app:cardCornerRadius="0dp"
+        app:layout_constraintTop_toBottomOf="@id/articleactivityDate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:paddingStart="26dp"
+            android:paddingEnd="26dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="28dp">
+
+            <TextView
+                android:id="@+id/articleactivityContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:lineSpacingExtra="7dp"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:text="KOMPAS.com – Jurusan Teknik Informatika digadang-gadang menjadi jurusan kuliah yang sangat dibutuhkan di masa yang akan datang.
+
+Jurusan Teknik Informatika ini mempunyai prospek kerja yang cerah setelah lulus. Dengan kemampuannya di bidang programmer, membuat lulusan Teknik Informatika dibutuhkan semua perusahaan.
+
+Lantas kisaran berapa gaji seorang lulusan Teknik Informatika?
+Melansir dari salah satu platform edukasi di Instagram yaitu Masuk Kampus dan sumber lainnya, berikut prospek kerja Teknik Informatika dan gaji lulusan Teknik Informatika. Hingga skdkfmkmsfkmkfkfakkjfkfklskfkdfkdkfkdfkdkfjdfjdkfjkdsjkjfdkjkskdfkdjfkjdkfjdkjskdfjdjkfjdkjfkdjfkdkfkdjfkdjfkdkfjkdfjkdjfkjdkfjkdLantas kisaran berapa gaji seorang lulusan Teknik Informatika?
+Melansir dari salah satu platform edukasi di Instagram yaitu Masuk Kampus dan sumber lainnya, berikut prospek kerja Teknik Informatika dan gaji lulusan Teknik Informatika. Hingga skdkfmkmsfkmkfkfakkjfkfklskfkdfkdkfkdfkdkfjdfjdkfjkdsjkjfdkjkskdfkdjfkjdkfjdkjskdfjdjkfjdkjfkdjfkdkfkdjfkdjfkdkfjkdfjkdjfkjdkfjkd" />
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

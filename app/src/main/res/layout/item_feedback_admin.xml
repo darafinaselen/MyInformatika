@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginBottom="1dp"
     android:background="@android:color/white"
     android:orientation="horizontal"
@@ -17,20 +18,22 @@
         android:layout_gravity="center_vertical" />
 
     <TextView
-        android:id="@+id/feedbackYear"
+        android:id="@+id/tvDate"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="2022"
+        tools:text="29/06/2025"
         android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         android:layout_gravity="center_vertical"/>
 
     <TextView
-        android:id="@+id/feedbackCategory"
+        android:id="@+id/tvCategory"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Admin"
+        tools:text="Academic"
         android:textSize="12sp"
         android:layout_gravity="center_vertical"/>
 
@@ -43,20 +46,19 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/detailBtn"
-            style="@style/Widget.Material3.Button.ElevatedButton" android:layout_width="wrap_content"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/action_detail"
-            android:backgroundTint="@color/primaryblue600"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
+            android:text="Detail" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/deleteBtn"
-            style="@style/Widget.MaterialComponents.Button.TextButton" android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="@string/action_delete"
-            android:textColor="@android:color/holo_red_dark" android:textSize="12sp" />
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp" />
     </LinearLayout>
 </LinearLayout>

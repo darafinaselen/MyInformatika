@@ -26,8 +26,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import de.hdodenhof.circleimageview.CircleImageView
-import java.io.File
-import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -37,7 +35,6 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var etFullname: TextInputEditText
     private lateinit var etIdNumber: TextInputEditText
     private lateinit var etEntryDate: TextInputEditText
-    private lateinit var autoCompleteUserType: AutoCompleteTextView
     private lateinit var radioGroupGender: RadioGroup
     private lateinit var etPhoneNumber: TextInputEditText
     private lateinit var etEmailRegister: TextInputEditText
@@ -49,7 +46,6 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var storage: FirebaseStorage
     private var imageUri: Uri? = null
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
-    private var copiedImagePath: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +58,6 @@ class RegisterActivity : AppCompatActivity() {
         etFullname = findViewById(R.id.etFullname)
         etIdNumber = findViewById(R.id.etIdNumber)
         etEntryDate = findViewById(R.id.etEntryDate)
-        autoCompleteUserType = findViewById(R.id.autoCompleteUserType)
         radioGroupGender = findViewById(R.id.radioGroupGender)
         etPhoneNumber = findViewById(R.id.etPhoneNumber)
         etEmailRegister = findViewById(R.id.etEmailRegister)
@@ -71,7 +66,6 @@ class RegisterActivity : AppCompatActivity() {
 
         setupImagePicker()
         setupDatePicker()
-        setupUserTypeDropdown()
 
         btnRegister.setOnClickListener {
             registerUser()
@@ -81,11 +75,7 @@ class RegisterActivity : AppCompatActivity() {
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
                 imageUri = result.data?.data
-                if (imageUri != null) {
-                    ivProfile.setImageURI(imageUri)
-                    // Langsung salin gambar dan simpan path-nya
-                    copiedImagePath = copyImageToInternalStorage(this, imageUri!!)
-                }
+                ivProfile.setImageURI(imageUri)
             }
         }
         ivProfile.setOnClickListener {
@@ -93,25 +83,7 @@ class RegisterActivity : AppCompatActivity() {
             activityResultLauncher.launch(intent)
         }
     }
-    private fun copyImageToInternalStorage(context: Context, uri: Uri): String? {
-        return try {
-            val inputStream = context.contentResolver.openInputStream(uri)
-            // Buat nama file unik di penyimpanan internal aplikasi
-            val fileName = "${System.currentTimeMillis()}_profile.jpg"
-            val file = File(context.filesDir, fileName)
-            val outputStream = FileOutputStream(file)
-            inputStream?.use { input ->
-                outputStream.use { output ->
-                    input.copyTo(output)
-                }
-            }
-            // Kembalikan path absolut dari file salinan
-            file.absolutePath
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
+
     private fun setupDatePicker() {
         etEntryDate.setOnClickListener {
             val calendar = Calendar.getInstance()
@@ -124,49 +96,62 @@ class RegisterActivity : AppCompatActivity() {
             datePickerDialog.show()
         }
     }
-    private fun setupUserTypeDropdown() {
-        val userTypes = resources.getStringArray(R.array.user_types)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, userTypes)
-        autoCompleteUserType.setAdapter(adapter)
-    }
     private fun registerUser() {
         val fullname = etFullname.text.toString().trim()
         val idNumber = etIdNumber.text.toString().trim()
         val entryDate = etEntryDate.text.toString().trim()
-        val userType = autoCompleteUserType.text.toString()
         val phoneNumber = etPhoneNumber.text.toString().trim()
         val email = etEmailRegister.text.toString().trim()
         val password = etPasswordRegister.text.toString().trim()
         val selectedGenderId = radioGroupGender.checkedRadioButtonId
-        val imagePathString = imageUri?.toString()
 
         // --- Validasi Input ---
         if (imageUri == null) {
             Toast.makeText(this, "Silakan pilih foto profil", Toast.LENGTH_SHORT).show()
             return
         }
-        if (TextUtils.isEmpty(fullname) || TextUtils.isEmpty(idNumber) || TextUtils.isEmpty(entryDate) ||
-            TextUtils.isEmpty(userType) || TextUtils.isEmpty(phoneNumber) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || selectedGenderId == -1) {
+        if (TextUtils.isEmpty(fullname) || TextUtils.isEmpty(idNumber) || TextUtils.isEmpty(entryDate) || TextUtils.isEmpty(phoneNumber) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || selectedGenderId == -1) {
             Toast.makeText(this, "Semua kolom wajib diisi!", Toast.LENGTH_SHORT).show()
             return
         }
 
-        // Tampilkan loading dan nonaktifkan tombol
-//        progressBar.visibility = View.VISIBLE
         btnRegister.isEnabled = false
+        // Tampilkan ProgressBar di sini jika ada
+        // progressBar.visibility = View.VISIBLE
 
-        // --- Alur Registrasi Bertingkat ---
+        val selectedRadioButton = findViewById<RadioButton>(selectedGenderId)
+        val gender = selectedRadioButton.text.toString()
+        uploadImageAndSaveUserData(imageUri!!, fullname, idNumber, entryDate, "Student", gender, phoneNumber, email, password)
+    }
+    private fun uploadImageAndSaveUserData(
+        imageUri: Uri, fullname: String, idNumber: String, entryDate: String, userType: String,
+        gender: String, phoneNumber: String, email: String, password: String
+    ) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { authTask ->
                 if (authTask.isSuccessful) {
                     val userId = auth.currentUser!!.uid
-                    val selectedRadioButton = findViewById<RadioButton>(selectedGenderId)
-                    val gender = selectedRadioButton.text.toString()
+                    val storageRef = storage.reference.child("profile_images/$userId.jpg")
 
-                    // Langsung simpan ke Firestore dengan path gambar, tanpa upload ke Storage
-                    saveUserDataToFirestore(userId, imagePathString!!, fullname, idNumber, entryDate, userType, gender, phoneNumber, email)
-
+                    // Mulai proses upload file
+                    storageRef.putFile(imageUri)
+                        .continueWithTask { uploadTask ->
+                            if (!uploadTask.isSuccessful) {
+                                uploadTask.exception?.let { throw it }
+                            }
+                            // Jika upload berhasil, lanjutkan dengan mengambil URL download
+                            storageRef.downloadUrl
+                        }
+                        .addOnCompleteListener { urlTask ->
+                            if (urlTask.isSuccessful) {
+                                val downloadUrl = urlTask.result.toString()
+                                saveUserDataToFirestore(userId, downloadUrl, fullname, idNumber, entryDate, userType, gender, phoneNumber, email)
+                            } else {
+                                handleRegistrationFailure("Gagal mendapatkan URL gambar: ${urlTask.exception?.message}")
+                            }
+                        }
                 } else {
+                    // Gagal membuat akun Auth
                     handleRegistrationFailure("Registrasi gagal: ${authTask.exception?.message}")
                 }
             }

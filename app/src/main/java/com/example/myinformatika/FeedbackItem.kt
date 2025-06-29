@@ -1,9 +1,15 @@
 package com.example.myinformatika
 
-data class FeedbackItem (
-    val sender: String,
-    val year: String,
-    val category: String,
-    val feedbackSnippet: String,
-    val showDelete: Boolean = true
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.DocumentId
+
+data class FeedbackItem(
+    @DocumentId
+    val id: String = "",
+    val date: String = "",
+    val category: String = "",
+    val feedbackContent: String = "",
+    val userID: String = "",
+    val timestamp: Timestamp? = null,
+    val isDone: Boolean = false
 )

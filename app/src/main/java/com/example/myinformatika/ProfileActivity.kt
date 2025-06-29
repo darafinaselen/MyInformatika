@@ -62,10 +62,16 @@ class ProfileActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    val intent = Intent(this, HomeActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                    startActivity(intent)
-                    finish() // Tutup halaman ini
+                    val sharedPref = getSharedPreferences("USER_DATA", MODE_PRIVATE)
+                    val userType = sharedPref.getString("USER_TYPE", "Mahasiswa")
+                    val homeIntent = if (userType == "Admin") {
+                        Intent(this, AdminHomeActivity::class.java)
+                    } else {
+                        Intent(this, HomeActivity::class.java)
+                    }
+                    homeIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(homeIntent)
+                    finish()
                     true
                 }
                 R.id.navigation_article -> {

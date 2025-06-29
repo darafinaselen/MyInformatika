@@ -22,7 +22,7 @@
 
             <ImageView
                 android:id="@+id/ivBack"
-                android:layout_width="150dp"
+                android:layout_width="135dp"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="16dp"
@@ -51,44 +51,79 @@
     </com.google.android.material.appbar.MaterialToolbar>
 
     <LinearLayout
+        android:id="@+id/filter_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="20dp">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <EditText
-            android:id="@+id/searchField"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:layout_marginStart="10dp"
-            android:hint="@string/search_hint"
-            android:inputType="text"
-            android:autofillHints="text"
-            android:background="@drawable/background_edit"
-            android:paddingHorizontal="12dp"
-            android:layout_marginEnd="8dp"/>
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/filterCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="@string/category"
-            app:backgroundTint="#1976D2" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menu_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Category"
+                style="@style/MyOutlinedDropdown"
+                android:theme="@style/MyDropdownThemeOverlay">
 
-        <Button
-            android:id="@+id/filterDate"
-            android:layout_width="wrap_content"
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menu_academic_year"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:hint="Academic Years"
+                style="@style/MyOutlinedDropdown"
+                android:theme="@style/MyDropdownThemeOverlay">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteAcademicYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="SpeakableTextPresentCheck"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="@string/date"
-            app:backgroundTint="#1976D2"
-            android:layout_marginStart="8dp" />
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnResetFilter"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Reset" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApplyFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,6 +143,7 @@
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="@string/date"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="14sp"/>
@@ -116,6 +152,7 @@
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="@string/category"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="14sp"/>
@@ -124,18 +161,34 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="@string/header_action"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="14sp"/>
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/feedbackRecycler"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingBottom="8dp"
-        android:layout_marginTop="2dp"
-        tools:ignore="SpeakableTextPresentCheck"/>
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/feedbackRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="2dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <TextView
+            android:id="@+id/tvEmptyData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feedback's Data not found"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+    </FrameLayout>
+
 </LinearLayout>

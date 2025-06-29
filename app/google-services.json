@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "29392660000",
-    "project_id": "my-informatika",
-    "storage_bucket": "my-informatika.firebasestorage.app"
+    "project_number": "481940309742",
+    "firebase_url": "https://myinformatika-ebdfe-default-rtdb.firebaseio.com",
+    "project_id": "myinformatika-ebdfe",
+    "storage_bucket": "myinformatika-ebdfe.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:29392660000:android:9d0e9a5d52befcc09cfe45",
+        "mobilesdk_app_id": "1:481940309742:android:bea42c4fd05fe53979d5ff",
         "android_client_info": {
           "package_name": "com.example.myinformatika"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCtSPi61lqN68Jlcx4YkiazPk7wgK_nx6U"
+          "current_key": "AIzaSyCrDY2_keXGcD_A0N0IUbl3NzfNSAxXrNc"
         }
       ],
       "services": {

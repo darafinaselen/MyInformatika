@@ -13,7 +13,6 @@ import android.content.Intent
 import android.util.Log
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.io.File
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,13 +33,14 @@ class HomeActivity : AppCompatActivity() {
         tvGreeting.text = getGreetingMessage()
         tvWelcomeMessage.text = fullName
 
-        if (profileImageUrl != null) {
-            val imageFile = File(profileImageUrl)
+        if (!profileImageUrl.isNullOrEmpty()) {
             Glide.with(this)
-                .load(imageFile)
+                .load(profileImageUrl)
                 .placeholder(R.drawable.baseline_account_circle_24)
                 .error(R.drawable.baseline_account_circle_24)
                 .into(ivUserProfileHome)
+        } else {
+            ivUserProfileHome.setImageResource(R.drawable.baseline_account_circle_24)
         }
 
         val btnFeedback: MaterialCardView = findViewById(R.id.btnFeedback)
@@ -70,8 +70,10 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_info -> {
-//                    startActivity(Intent(this, InfoActivity::class.java))
-//                    overridePendingTransition(0, 0)
+                    val intent = Intent(this, AcademicInfoActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    startActivity(intent)
+                    finish()
                     true
                 }
                 R.id.navigation_profile -> {

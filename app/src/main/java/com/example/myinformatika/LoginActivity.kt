@@ -86,24 +86,19 @@ class LoginActivity : AppCompatActivity() {
         btnLogin.isEnabled = false
 
         if (identifier.contains("@")) {
-            // Jika ya, langsung coba login dengan email
             performFirebaseLogin(identifier, password)
         } else {
-            // Jika tidak, anggap ini adalah ID Number. Cari emailnya di Firestore.
             firestore.collection("users")
                 .whereEqualTo("studentNumber", identifier)
                 .limit(1)
                 .get()
                 .addOnSuccessListener { querySnapshot ->
                     if (querySnapshot.isEmpty) {
-                        // Jika tidak ada dokumen yang ditemukan
                         handleLoginFailure("ID Number tidak ditemukan.")
                     } else {
-                        // Jika dokumen ditemukan, ambil email dari dokumen tersebut
                         val userDocument = querySnapshot.documents[0]
                         val email = userDocument.getString("email")
                         if (email != null) {
-                            // Lakukan login menggunakan email yang ditemukan
                             performFirebaseLogin(email, password)
                         } else {
                             handleLoginFailure("Data email tidak ditemukan untuk ID ini.")
@@ -118,11 +113,9 @@ class LoginActivity : AppCompatActivity() {
     private fun performFirebaseLogin(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener { authResult ->
-                // Login Auth berhasil, lanjutkan mengambil data dari Firestore
                 fetchUserAndGoToHome(authResult.user!!.uid)
             }
             .addOnFailureListener { e ->
-                // Jika login ke Auth gagal (misal: password salah)
                 handleLoginFailure("Login gagal: Email atau Password salah.")
             }
     }

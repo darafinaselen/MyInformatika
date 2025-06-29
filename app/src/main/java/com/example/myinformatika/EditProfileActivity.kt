@@ -27,7 +27,6 @@ import java.util.Locale
 
 class EditProfileActivity : AppCompatActivity() {
 
-    // ... (Deklarasi variabel tetap sama)
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var storage: FirebaseStorage
@@ -36,7 +35,7 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var etFullname: EditText
     private lateinit var etStudentNumber: EditText
     private lateinit var etEntryDate: EditText
-    private lateinit var acUserType: AutoCompleteTextView
+    private lateinit var acUserType: EditText
     private lateinit var etGender: EditText
     private lateinit var etPhoneNumber: EditText
     private lateinit var etEmail: EditText
@@ -57,8 +56,6 @@ class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
-
-        // ... (Inisialisasi Firebase dan View tetap sama)
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
         storage = FirebaseStorage.getInstance()
@@ -74,17 +71,14 @@ class EditProfileActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submitButton)
         backButton = findViewById(R.id.backButton)
 
-        // Muat data dan setup listener
         loadUserData()
-        setupDropdown()
-        setupDatePicker() // [DITAMBAHKAN] Panggil fungsi setup kalender
+        setupDatePicker()
 
         backButton.setOnClickListener { finish() }
         cameraIcon.setOnClickListener { openGallery() }
         submitButton.setOnClickListener { saveProfileChanges() }
     }
 
-    // [DITAMBAHKAN] Fungsi untuk menampilkan dialog kalender
     private fun setupDatePicker() {
         etEntryDate.setOnClickListener {
             val calendar = Calendar.getInstance()
@@ -104,7 +98,6 @@ class EditProfileActivity : AppCompatActivity() {
         }
     }
 
-    // ... (Fungsi-fungsi lain tetap sama)
     private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         pickImageLauncher.launch(intent)
@@ -118,7 +111,7 @@ class EditProfileActivity : AppCompatActivity() {
                     etFullname.setText(document.getString("fullName"))
                     etStudentNumber.setText(document.getString("idNumber"))
                     etEntryDate.setText(document.getString("entryDate"))
-                    acUserType.setText(document.getString("userType"), false)
+                    acUserType.setText(document.getString("userType"))
                     etGender.setText(document.getString("gender"))
                     etPhoneNumber.setText(document.getString("phoneNumber"))
                     etEmail.setText(document.getString("email"))
@@ -164,7 +157,6 @@ class EditProfileActivity : AppCompatActivity() {
         updatedData["fullName"] = etFullname.text.toString()
         updatedData["idNumber"] = etStudentNumber.text.toString()
         updatedData["entryDate"] = etEntryDate.text.toString()
-        updatedData["userType"] = acUserType.text.toString()
         updatedData["gender"] = etGender.text.toString()
         updatedData["phoneNumber"] = etPhoneNumber.text.toString()
         updatedData["email"] = etEmail.text.toString()
@@ -180,14 +172,5 @@ class EditProfileActivity : AppCompatActivity() {
                 submitButton.isEnabled = true
                 Toast.makeText(this, "Gagal memperbarui profil.", Toast.LENGTH_SHORT).show()
             }
-    }
-
-    private fun setupDropdown() {
-        val userTypes = resources.getStringArray(R.array.user_types)
-        val adapter = ArrayAdapter(this, R.layout.dropdown_item, userTypes)
-        acUserType.setAdapter(adapter)
-        acUserType.setOnClickListener {
-            acUserType.showDropDown()
-        }
     }
 }

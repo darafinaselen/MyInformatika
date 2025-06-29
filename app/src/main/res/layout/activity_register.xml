@@ -135,17 +135,15 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/MyOutlinedDropdown"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/select_user_type">
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteUserType"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"
-                    android:textColor="@color/black"
-                    android:theme="@style/MyDropdownThemeOverlay"/>
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUserType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Student"
+                        android:enabled="false"
+                        android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             <TextView

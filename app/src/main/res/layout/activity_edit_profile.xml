@@ -8,7 +8,6 @@
     android:background="#D6EFFF"
     tools:context=".EditProfileActivity">
 
-    <!-- Toolbar Kustom -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -119,16 +118,13 @@
             <TextView
                 style="@style/EditProfileLabel"
                 android:text="User Type"/>
-            <AutoCompleteTextView
+            <EditText
                 android:id="@+id/acUserType"
                 style="@style/EditProfileField"
-                android:inputType="none"
-                android:hint="Pilih tipe pengguna"
-                android:drawableEnd="@android:drawable/arrow_down_float"
-                android:drawableTint="#808080"
-                android:drawablePadding="12dp"
-                android:clickable="true"
-                android:focusable="false" />
+                android:hint="Tipe pengguna"
+                android:enabled="false"
+                android:textColor="@android:color/darker_gray"
+                tools:text="Student"/>
 
             <TextView
                 style="@style/EditProfileLabel"

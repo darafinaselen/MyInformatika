@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyInformatika"
         tools:targetApi="31">
         <activity
+            android:name=".AcademicInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminFeedbackActivity"
             android:exported="false" />
         <activity

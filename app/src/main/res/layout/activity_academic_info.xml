@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.myinformatika.AcademicInfoActivity">
+
+    <!-- Background -->
+    <ImageView
+        android:id="@+id/bgView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="#D0F0FF"
+        android:contentDescription="Background Image"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titlePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="16dp"
+            android:lineSpacingExtra="4dp"
+            android:shadowColor="#80766F6F"
+            android:shadowDx="2"
+            android:shadowDy="7"
+            android:shadowRadius="1"
+            android:text="Academic Information"
+            android:textColor="#386391"
+            android:textSize="38sp"
+            android:textStyle="bold" />
+
+        <!-- Daftar Informasi -->
+        <!-- Penggunaan layout_weight="1" membuat RecyclerView mengisi sisa ruang -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAcademicInfo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/transparent"
+            android:clipToPadding="false"
+            android:padding="16dp"
+            android:scrollbars="vertical" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            style="@style/App.Custom.BottomNavigationView.NoIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryblue500"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:menu="@menu/bottom_navigation_menu" />
+
+    </LinearLayout>
+</FrameLayout>

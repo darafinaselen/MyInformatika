@@ -1,0 +1,16 @@
+<resources>
+
+
+    <style name="DropdownItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/item_background_selector</item> <!-- Warna biru -->
+        <item name="android:textColor">@color/dropdown_item_text_color</item><!-- Teks putih -->
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+</resources>

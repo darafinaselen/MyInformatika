@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_background_selector"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"> <!-- supaya ada space buat garis -->
+
+    <!-- Konten item -->
+    <TextView
+        android:id="@+id/textView"
+        style="@style/DropdownItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Garis putih di bawah -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#FFFFFF"/>
+</LinearLayout>

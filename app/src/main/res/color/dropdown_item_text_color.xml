@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="#4C7FB1"/> <!-- Warna saat ditekan, contoh: emas -->
+    <item android:color="#FFFFFF"/> <!-- Warna normal -->
+
+</selector>

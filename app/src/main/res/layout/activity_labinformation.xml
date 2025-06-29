@@ -29,8 +29,8 @@
 
     <ImageButton
         android:id="@+id/backButtonLabinfor"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:background="@drawable/round_button_background"
         android:contentDescription="Back"
         android:elevation="4dp"
@@ -46,7 +46,7 @@
         android:id="@+id/dropdownButtonLabinfor"
         android:layout_width="189dp"
         android:layout_height="41dp"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/dropdown_background"
         android:gravity="center"
@@ -58,13 +58,46 @@
         app:drawableEndCompat="@drawable/ic_arrow_down"
         app:layout_constraintStart_toEndOf="@id/backButtonLabinfor"
         app:layout_constraintTop_toTopOf="@id/backButtonLabinfor" />
+    <LinearLayout
+        android:id="@+id/dropdownListLabinfor"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/dropdown_background"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/backButtonLabinfor"
+        app:layout_constraintTop_toBottomOf="@id/dropdownButtonLabinfor"
+        android:layout_marginStart="68dp">
+
+        <TextView
+            android:id="@+id/itemLab1"
+            style="@style/DropdownItemStyle"
+            android:text="Laboratorium 1" />
+
+        <TextView
+            android:id="@+id/itemLab2"
+            style="@style/DropdownItemStyle"
+            android:text="Laboratorium 2" />
+
+        <TextView
+            android:id="@+id/itemLab3"
+            style="@style/DropdownItemStyle"
+            android:text="Laboratorium 3" />
+
+        <TextView
+            android:id="@+id/itemLab4"
+            style="@style/DropdownItemStyle"
+            android:text="Laboratorium 4" />
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/infoCardLabinfor"
         android:layout_width="410dp"
-        android:layout_height="wrap_content"
+        android:layout_height="429dp"
         android:layout_margin="0dp"
         app:cardCornerRadius="0dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         app:cardElevation="0dp"
         android:backgroundTint="#ECECEC"
         app:layout_constraintTop_toBottomOf="@id/backgroundImageLabinfor"
@@ -73,10 +106,12 @@
 
         <LinearLayout
             android:layout_width="410dp"
-            android:layout_height="405dp"
+            android:layout_height="429dp"
             android:orientation="vertical"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
             android:background="@drawable/card_top_rounded"
-            android:padding="20dp">
+            android:padding="28dp">
 
             <TextView
                 android:id="@+id/titleTextLabinfor"

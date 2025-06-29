@@ -5,4 +5,7 @@
     <string name="welcome_title2">My Informatika</string>
     <string name="welcome_subtitle">The most reliable app for Unram informatics engineering student</string>
     <string name="get_started">Get Started</string>
+    <string name="ini_judul">Ini Judul</string>
+    <string name="ini_gambar">ini gambar</string>
+    <string name="ini_tanggal">2025-06-29</string>
 </resources>

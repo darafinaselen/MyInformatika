@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+
+    android:background="#91DFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArtiActivity2">
+
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sekilas"
+        android:fontFamily="@font/poppinssemibold"
+        android:textSize="32dp"
+        android:textColor="@color/black"
+        android:paddingLeft="30sp"
+        android:paddingTop="40dp"
+        />
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_below="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Informatika"
+        android:fontFamily="@font/poppinssemibold"
+        android:textSize="32dp"
+        android:textColor="#1976D2"
+        android:paddingLeft="30sp"
+        android:layout_marginTop="-15dp"
+        />
+
+    <TextView
+        android:id="@+id/title3"
+        android:layout_below="@+id/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="here are some article about informatic engineering"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="17dp"
+        android:textColor="@color/black"
+        android:paddingLeft="30sp"
+        android:layout_marginTop="-5dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewArtikel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title3"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="120dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+
+        />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/qrcode"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="55dp"
+        />
+    <ImageView
+        android:id="@+id/navbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/navbarbg"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

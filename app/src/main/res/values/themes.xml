@@ -9,6 +9,61 @@
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/primaryblue500</item>
     </style>
-
     <style name="Theme.MyInformatika" parent="Base.Theme.MyInformatika" />
+
+    <style name="MyDropdownPopupStyle" parent="@android:style/Widget.ListView">
+        <item name="android:background">@color/primaryblue600</item>
+        <item name="android:divider">@color/indikatorcolor</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
+    <style name="MyDropdownThemeOverlay" parent="">
+        <item name="android:dropDownListViewStyle">@style/MyDropdownPopupStyle</item>
+    </style>
+
+    <style name="MyOutlinedDropdown" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/text_input_box_stroke</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="android:textColorHint">@color/black50persen</item>
+        <item name="endIconTint">@color/text_input_box_stroke</item>
+    </style>
+
+    <style name="App.Custom.BottomNavigationView.NoIndicator" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemActiveIndicatorStyle">@style/App.Custom.BottomNavigationView.NoIndicator.Indicator</item>
+    </style>
+
+    <style name="App.Custom.BottomNavigationView.NoIndicator.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+
+    values/styles.xml
+
+    <style name="DropdownItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/item_background_selector</item>
+        <item name="android:textColor">@color/dropdown_item_text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="EditProfileField" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:background">@drawable/background_edit</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/black50persen</item>
+    </style>
+
+    <style name="EditProfileLabel" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item> <item name="android:layout_marginBottom">4dp</item> <item name="android:textColor">@color/primaryblue800</item> <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
